@@ -1,0 +1,575 @@
+/* Variables de color*/
+:root { /*nivel MÁS alto, es la raíz*/
+    --blue-dark: #1d3363;
+    --blue-light: #0072ce;
+    --bg-gray: #f4f6f9;
+    --card-gray: #e0e0e0;
+    --text-dark: #222222;
+    --red-alert: #ff4d4f;
+    --error-red: #ff0308;
+    --card-orange: #ff9900;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-gray);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;    
+}
+
+body.pag-agenda {
+    opacity: 0;
+    animation: aparecerSuave 0.5s ease-in-out forwards;
+}
+
+body.pag-login {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+@keyframes aparecerSuave {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body.pag-agenda.fade-out {
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+}
+
+form{
+    display: flex;
+    flex-direction: column; 
+    gap: 1rem; 
+    width: 100%; 
+    align-items: center;
+    position: relative;
+}
+/* Estilos del Encabezado */
+
+
+.main-header {
+    background-color: var(--blue-dark);
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    border-bottom: 5px solid var(--orange);
+    /*antes era --blue-light*/
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-upslp h1 {
+    font-size: 1.4rem; /*rem --> medida relativa*/
+    font-weight: 700; /*que tan grueso es*/
+    letter-spacing: 1px;
+}
+
+.logo-upslp h1 span {
+    font-weight: 700; 
+    /*antes era 400*/
+}
+
+.logo-upslp p {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #d1d5db;
+}
+
+.logo-cadi {
+    text-align: right;
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    padding-right: 2rem;
+    position: relative;
+}
+
+.logo-cadi h2 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    padding-bottom: 0rem;
+    opacity: 0.9;
+    color: #ffffff;
+    box-shadow: #000000 0px 4px 10px rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+.logo-cadi p {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: #d1d5db;
+    text-decoration:overline;
+    text-decoration-color: var(--card-orange);
+    text-decoration-thickness: 3px;
+}
+
+.logo-cadi hr{
+    width: 8rem ;
+    height: 2px;
+    background-color: #ffffff;
+    left: 92%;
+    position: relative;
+    align-items: center;
+}
+h2 {
+    color: var(--blue-dark);
+    margin-bottom: 1rem;
+}
+.logo-cadi p {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+/* Contenedor del Contenido */
+.content-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem; /*espacio entre el contenido de un elementos y bordes*/
+}
+
+/*=========================LOGIN=========================*/
+.card-login {
+    flex: 3;
+    background-color: var(--card-gray);
+    display: flex;
+    max-width: 400px;
+    width: 100%;
+    /*se elimino max height y height para ajustar el texto.*/
+    position: center;
+    border-radius: 24px;
+    overflow: hidden;
+    padding-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position:relative;
+    flex-direction: column;
+    align-items:center;
+    
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+.card-login h2 {
+    background-color: var(--card-orange);
+    color: var(--blue-dark);
+    text-align: center;
+    padding: 1rem 2rem;
+    width: 100%;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.card-login label{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    margin-top: 0.5rem;
+    color : #2d3748;
+}
+
+.card-login input{
+    padding: 1.25rem;
+    font-size: 1.25rem;
+    border-radius: 10px;
+    border: 1px solid #a8a8a8;
+    width: 70%;
+    margin-bottom: 1rem;
+}
+
+.card-login p{
+    
+    color: var(--error-red);
+    font-size: 0.9rem;
+    width: 70%;
+    margin-top: 0.5rem;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    
+}
+
+.btn-login {
+    display: inline-block;
+    background-color: #000000;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 1rem;
+    font-size: 0.85rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: 70%;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 10px rgba(44, 43, 43, 0.308);
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.btn-login:hover {
+    background-color: var(--blue-light);
+    transform: translateY(-5px);
+}
+
+.error-message {
+    color: var(--error-red);
+    font-size: 0.9rem;
+    width: 70%;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+/*===================================================================*/
+/* Imagen y cuadro del contenido*/
+
+.card {
+    background-color: var(--card-gray);
+    display: flex;
+    flex-direction:column;
+    max-width: 900px;
+    width: 100%;
+    /*eliminamos max height y height para ajustar el texto.*/
+    position: center;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position:relative;
+    padding-bottom: 5rem;
+    align-items: center;
+}
+
+.card h2{
+    background-color: var(--card-orange);
+    color: var(--blue-dark);
+    text-align: center;
+    padding: 1rem 2rem;
+    width: 100%;
+    text-align: center;
+    align-items: top;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    padding: 1.5rem 2rem;
+    height: 10%;
+    box-sizing: border-box;
+    margin-top: 0;
+}
+
+.card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+/* Área de Texto */
+.card-text-container {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+    justify-content: space-around;
+
+}
+.card-text-container form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem; /* Espacio corto y controlado entre etiquetas e inputs */
+}
+
+.card-text-container label{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2d3748;
+    margin-top: 0.5rem;
+}
+
+.card-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--blue-dark);
+    margin-bottom: 1rem;
+}
+
+.card-description {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #4a5568;
+    margin-bottom: 2.5rem;
+}
+
+/* Botón Modernizado */
+.btn-return {
+    display: inline-block;
+    background-color: #000000;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 5%;
+}
+
+.btn-login {
+    display: inline-block;
+    background-color: #000000;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 1rem;
+    font-size: 0.85rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: 70%;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 10px rgba(44, 43, 43, 0.308);
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.btn-login:hover {
+    background-color: var(--blue-light);
+    transform: translateY(-5px);
+}
+
+.desplegable-formulario {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #a8a8a8;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    outline: none;
+}
+
+#microInteraction {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    color: #0072ce;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.btn-logout{
+    height: 40px;
+    width: 50px;
+    background-color: var(--red-alert);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.7rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 20%;
+    align-items: center;
+    position: absolute;
+    font-weight: bolder;
+    bottom: 5%;
+    left: 5%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-logout:hover {
+    background-color: var(--error-red);
+    transform: translateY(-5px);
+}
+
+.btn-return:hover {
+    background-color: var(--blue-light);
+    transform: translateY(-5px);
+}
+
+.card-text-container input, .card-text-container select {
+    width: 220px;
+    padding: 8px 12px;
+    font-size: 1.1rem;
+    border: 2px solid #a8a8a8;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    transform: color 2s ease, transform 0.2s ease;
+}
+
+.card-text-container input:hover,  .card-text-container input:focus {
+    border-color: var(--blue-light);
+    outline: none;
+    box-shadow: 0 0 5px rgba(21, 137, 231, 0.5);
+}
+
+.card-text-container select:hover, select:focus {
+    border-color: var(--blue-light);
+    outline: none;
+    box-shadow: 0 0 5px rgba(21, 137, 231, 0.5);
+}
+
+.card-login input{
+    width: 220px;
+    padding: 8px 12px;
+    font-size: 1.1rem;
+    border: 2px solid #a8a8a8;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    transform: color 2s ease, transform 0.2s ease;
+}
+
+.card-login input:hover,  .card-login input:focus {
+    border-color: var(--blue-light);
+    outline: none;
+    box-shadow: 0 0 5px rgba(21, 137, 231, 0.5);
+}
+
+    /* Asegura que el contenedor mantenga las dimensiones */
+.card-image-container {
+    
+    flex: 1.2;
+    align-items: center;
+    position: relative;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem;
+    padding-top: 2rem;       
+}
+/* =======================Estilos del Carrusel de Imágenes ==========================*/
+    /* Encima las imágenes una sobre otra en la misma posición */
+    .carousel-slides {
+        position: relative;
+        position: relative;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        
+        overflow: hidden;
+        box-shadow: 15px 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel-slides .card-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out; /* Transición suave de desvanecido */
+    }
+
+    /* Solo la imagen activa se vuelve visible */
+    .carousel-slides .card-image.active {
+        opacity: 1;
+        position: relative; /* Mantiene el flujo de altura */
+    }
+
+    /* Estilos para la barra de círculos inferiores */
+    .carousel-dots {
+        position: relative;
+        text-align: center;
+        bottom: 20px;
+        width: 100%;
+        z-index: 10;
+    }
+
+    /* Estilo individual de cada círculo */
+    .dot {
+        cursor: pointer;
+        height: 12px;
+        width: 12px;
+        margin: 10px 6px;
+        background-color: rgba(255, 255, 255, 0.4); /* Blanco traslúcido para que se vea sobre cualquier foto */
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    /* Círculo seleccionado o cuando pasas el mouse */
+    .dot.active, .dot:hover {
+        background-color: var(--blue-light);
+    }
+
+    
+
+/* Adaptabilidad para Pantallas Pequeñas (Móviles) */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .logo-cadi {
+        text-align: center;
+    }
+
+    .card {
+        flex-direction: column;
+    }
+    
+    .card-image-container {
+        flex-direction: row;
+	    flex-wrap: wrap;
+        height: 250px;
+    }
+
+    .card-text-container {
+        padding: 2rem 1.5rem;
+        align-items: row;
+        text-align: center;
+    }
+
+    .btn-return{
+    text-align: center;
+	padding: 2rem 1.5rem;
+	font-size: 12px;
+    }
+
+    
+}
+

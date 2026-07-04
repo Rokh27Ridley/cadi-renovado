@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADI Reservaciones - UPSLP</title>
+    <link rel="stylesheet" href="StylesAgenda.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class ="pag-agenda">
+
+    <header class="main-header">
+        <div class="logo-upslp">
+            <img src = "UPSLP.png" alt="Logo-UPSLP" title ="Logotipo">
+        </div>
+        <div class="logo-cadi">
+            <h2>CADI</h2>
+            <p>RESERVACIONES</p>
+        </div>
+    </header>
+
+    
+    <main class="content-container">
+    <div class="card">
+        <h2 class="">Welcome to CADI Reservation System</h2>
+        <a href="index.html" class="btn-logout" href ="logout.png">
+            <span>Log Out</span>
+        </a>
+        <div class="card-text-container">
+            
+            
+            
+            <form id="reservationForm">
+                <h3>Make your reservation</h3>
+                <label for="area" >Area</label>
+                <select id="area" name="Area" >
+                    <option value="Studying Area">Studying Area</option>
+                    <option value="Conversation">Conversation</option>
+                    <option value="Speaking">Speaking</option>
+                </select>
+        
+                <label for="fecha">Date</label>
+                <input type="date" id="fecha" required oninput="validarFinDeSemana(this)">
+                
+                <label for="hora">Hora</label>
+                <input type="time" id="hora" required name="Hora" oninput="validarHora(this)" step="3600">
+                
+                
+                <button type="submit" class="btn-return" style="width: 150px; display:block; border: none; cursor: pointer;">
+                    <b>Reserve</b>
+                </button>
+
+                <p class ="error-message"id="error-message"></p>
+                
+                <div id="microInteraction" style="display: none;">
+                    <img src="leoncito.png" alt="Cargando" style="width: 30px; height: 30px;">
+                    <span>¡Reservando espacio...!</span>
+                </div>
+            </form>
+        
+        
+            <div class="card-image-container">
+                <h3>CADI AREAS</h3>
+                <div class ="carousel-slides">
+                    
+                    <img src="imagCadi.jpg" alt="Computing Area Classroom" class="card-image active"><a href="Cadi Areas"></a>
+                    <img src="imagCadi2.jpg" alt="Computing Area Classroom" class="card-image">
+                    <img src="imagCadi3.jpg" alt="Computing Area Classroom" class="card-image">
+                </div>
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(0)"></span>
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                </div>
+            </div>
+        </div> 
+    </div>
+</main>
+    <script src="scriptAgenda.js"></script>
+</body>
+</html>

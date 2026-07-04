@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADI LOG IN</title>
+    <link rel="stylesheet" href="StylesAgenda.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="pag-login">
+    <header class="main-header">
+        <div class="logo-upslp">
+            <img src = "UPSLP.png" alt="Logo-UPSLP" title ="Logotipo">
+        </div>
+        <div class="logo-cadi">
+            <h2>CADI</h2>
+            <p>RESERVACIONES</p>
+        </div>
+    </header>
+
+    <main class ="content-container">
+        <div class ="card-login">
+            
+                <h2>LOG IN</h2>
+
+                <form id ="login-form">
+
+                    <label for = "user">UPSLP ID/ User ID</label>
+                    <input type = "text" id="user" placeholder="Enter User ID">
+                    <label for ="password">Password</label>
+                    <input type = "password" id="password" placeholder="Enter Password">
+
+                    <button type ="submit" class ="btn-login">Log In</button>
+                    
+                </form>
+                
+                <p class ="error-message"id="error-message"></p>
+            
+        </div>
+    </main>
+        
+
+    <script src = "script.js"></script>
+</body>
+</html>
