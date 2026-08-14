@@ -74,6 +74,22 @@ document.getElementById('reservationForm').addEventListener('submit', function (
         return;
     }
 
+    const hoy = toInputDate(dateOnly(new Date()));
+    if (fecha === hoy) {
+        const horaSeleccionada = parseInt(hora, 10);
+        const horaActual = new Date().getHours();
+        if (horaSeleccionada < horaActual) {
+            alert("No puedes reservar en una hora anterior a la actual.");
+            return;
+        }
+    }
+
+    const duplicada = reservas.some(r => r.fecha === fecha && r.hora === hora);
+    if (duplicada) {
+        alert("Ya existe una reserva para el mismo día y la misma hora.");
+        return;
+    }
+
     reservas.push({
         area: area,
         fecha: fecha,
