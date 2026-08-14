@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADI Reservas - UPSLP</title>
+    <link rel="stylesheet" href="StylesAgenda.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="pag-agenda">
+
+    <header class="main-header">
+        <div class="logo-upslp">
+            <img src="UPSLP.png" alt="Logo-UPSLP" title="Logotipo">
+        </div>
+        <div class="logo-cadi">
+            <h2>CADI</h2>
+            <p>RESERVACIONES</p>
+        </div>
+    </header>
+
+    <main class="content-container">
+        <div class="card">
+            <h2>My Reservations</h2>
+
+            <div class="reservas-toolbar">
+                <a href="agenda.html" class="btn-nav">
+                    <span>Nueva Reserva</span>
+                </a>
+                <button type="button" class="btn-nav" id="btn-info">
+                    <span>Información</span>
+                </button>
+                <button type="button" class="btn-nav" id="btn-limpiar">
+                    <span>Limpiar Todo</span>
+                </button>
+            </div>
+
+            <div class="reservas-list">
+                <h3>Reservas realizadas</h3>
+                <div class="reservas-grid" id="reservas-grid"></div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal-overlay" id="modal-confirm">
+        <div class="modal-box">
+            <h3 id="confirm-title"></h3>
+            <p id="confirm-text"></p>
+            <div class="modal-actions">
+                <button type="button" class="btn-nav" id="confirm-no">No</button>
+                <button type="button" class="btn-nav btn-borrar" id="confirm-yes">Sí, cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-info">
+        <div class="modal-box panel-info">
+            <h3>Información</h3>
+            <div class="info-row">
+                <span class="info-label">Reservas actuales:</span>
+                <span class="info-value" id="info-actuales">0</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Reservas disponibles:</span>
+                <span class="info-value" id="info-disponibles">0</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Reservas canceladas:</span>
+                <span class="info-value" id="info-canceladas">0</span>
+            </div>
+            <button type="button" class="btn-nav" id="info-close">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="scriptReservas.js"></script>
+</body>
+</html>
